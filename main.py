@@ -14,7 +14,7 @@ from sqlalchemy import Table, Column, Integer, ForeignKey
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "8BYkEfBA6O6donzWlSihBXox7C0sKR6b"
+app.config['SECRET_KEY'] = os.environ.get("SECRET")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 login_manager = LoginManager()
@@ -30,7 +30,7 @@ gravatar = Gravatar(app,
                     base_url=None)
 
 ##CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://zgwaofwewsjpkb:708b93701909975ce289ebc8e2891e1c95608a88dc04c7a0be962fc22c8a44e2@ec2-52-73-184-24.compute-1.amazonaws.com:5432/db3v7fr99m7kl9'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///blog.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
