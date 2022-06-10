@@ -14,7 +14,7 @@ from sqlalchemy import Table, Column, Integer, ForeignKey
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('SECRET')
+app.config['SECRET_KEY'] = "8BYkEfBA6O6donzWlSihBXox7C0sKR6b"
 ckeditor = CKEditor(app)
 Bootstrap(app)
 login_manager = LoginManager()
